@@ -11,8 +11,11 @@ A modern, responsive web application for Sarthak Homeo Hall, a classical homeopa
 
 ## 🔧 Built With:
 ReactJS (with Tailwind CSS for styling)
+
 React Router for navigation
+
 Axios for HTTP requests
+
 Textbelt API for SMS notifications
 
 
