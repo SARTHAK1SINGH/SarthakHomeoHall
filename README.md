@@ -1,4 +1,4 @@
-# Sarthak Homeo Hall – Appointment Booking & Info Website
+# Sarthak Homeo Hall – Appointment Booking & Info Website [🔗 Live Site](https://sarthakhomeohall.netlify.app/)
 A modern, responsive web application for Sarthak Homeo Hall, a classical homeopathy clinic established in 2007. This platform allows patients to:
 
 📅 Book appointments easily online
