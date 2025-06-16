@@ -3,7 +3,7 @@ A modern, responsive web application for Sarthak Homeo Hall, a classical homeopa
 
 📅 Book appointments easily online
 
-📱 Receive SMS confirmations (via Textbelt API)
+📱 Doctor Receives Appointment Mail (via EmailJS)
 
 📄 Learn about the clinic’s approach and treatment specializations
 
@@ -16,7 +16,7 @@ React Router for navigation
 
 Axios for HTTP requests
 
-Textbelt API for SMS notifications
+EmailJS API for Appointment Mail
 
 
 ## Commands to run locally:
