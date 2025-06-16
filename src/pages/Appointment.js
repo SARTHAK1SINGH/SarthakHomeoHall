@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import { Calendar, Phone, User, MessageCircle } from 'lucide-react';
 
 export default function Appointment() {
@@ -12,6 +12,8 @@ export default function Appointment() {
   const [status, setStatus] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const formRef = useRef();
+
   const handleChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -22,47 +24,29 @@ export default function Appointment() {
     setStatus('');
 
     try {
-  setStatus(''); // Reset status
-  // 1. Compose message
-  const smsMessage = 'Your appointment is confirmed with Sarthak Homeo Hall.';
+      const result = await emailjs.sendForm(
+        'service_1j29krr',     // replace with your actual service ID
+        'template_yc0usje',    // replace with your actual template ID
+        formRef.current,
+        'x3mkY0Xw6pZFIyv-g'      // replace with your public key
+      );
 
-  // 2. Send SMS using Textbelt API
-  const smsResponse = await axios.post(
-    'https://textbelt.com/text',
-    new URLSearchParams({
-      key: 'textbelt_test',
-      phone: formData.phone.trim(), // Ensure no extra spaces
-      message: smsMessage
-    }),
-    {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
+      console.log(result.text);
+      setStatus('Appointment booked and email sent successfully.');
+      setFormData({ name: '', phone: '', date: '', message: '' });
+    } catch (error) {
+      console.error(error);
+      setStatus('Failed to send email. Please try again later.');
+    } finally {
+      setLoading(false);
     }
-  );
-
-  // 3. Handle response
-  if (smsResponse.data.success) {
-    setStatus('Appointment confirmed and SMS sent successfully.');
-  } else {
-    setStatus('Failed to send SMS. Please try again later.');
-  }
-
-  // 4. Reset form
-  setFormData({ name: '', phone: '', date: '', message: '' });
-} catch (err) {
-  console.error(err);
-  setStatus('An error occurred. Please try again later.');
-} finally {
-  setLoading(false);
-}
-};
+  };
 
   return (
     <section className="p-8 max-w-3xl mx-auto bg-white rounded-xl shadow-md">
       <h2 className="text-3xl font-bold text-center text-indigo-800 mb-6">Book an Appointment</h2>
 
-      <form onSubmit={handleSubmit} className="space-y-5">
+      <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
         {/* Name */}
         <div>
           <label className="block text-gray-700 font-medium mb-1">Your Name</label>

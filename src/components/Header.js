@@ -8,8 +8,10 @@ export default function Header() {
   return (
     <header className="bg-blue-600 text-white shadow">
       <nav className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-        {/* Logo */}
-        <h1 className="text-lg sm:text-xl font-bold">SARTHAK HOMEO HALL</h1>
+        {/* Logo - Now clickable */}
+        <Link to="/" className="text-lg sm:text-xl font-bold hover:underline">
+          SARTHAK HOMEO HALL
+        </Link>
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex space-x-6 text-sm sm:text-base">

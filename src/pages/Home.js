@@ -1,4 +1,9 @@
+import { useNavigate } from 'react-router-dom';
+
 export default function Home() {
+
+  const navigate = useNavigate(); // React Router hook for navigation
+
   return (
     <section className="relative w-full min-h-screen overflow-hidden m-0 p-0">
       {/* Background Image */}
@@ -30,7 +35,7 @@ export default function Home() {
 
         {/* Button */}
         <button
-          onClick={() => window.location.href = '/appointment'}
+          onClick={() => navigate('/appointment')}
           className="bg-indigo-600 hover:bg-indigo-700 text-white text-sm sm:text-base md:text-lg px-6 sm:px-8 py-3 rounded-full shadow-lg transition-all duration-300"
         >
           Book an Appointment

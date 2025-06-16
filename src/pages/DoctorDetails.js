@@ -1,4 +1,8 @@
+import { useNavigate } from 'react-router-dom';
+
 export default function DoctorDetails() {
+  const navigate = useNavigate(); // React Router hook for navigation
+
   return (
     <section className="p-8 max-w-5xl mx-auto bg-white rounded-xl shadow-md">
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
@@ -28,7 +32,7 @@ export default function DoctorDetails() {
           
           {/* Book Appointment Button */}
           <button
-            onClick={() => window.location.href = '/appointment'}
+            onClick={() => navigate('/appointment')}
             className="bg-indigo-600 text-white px-6 py-2 rounded-full shadow hover:bg-indigo-700 transition"
           >
             Book Appointment
