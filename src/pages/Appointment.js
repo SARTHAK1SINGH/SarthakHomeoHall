@@ -1,42 +1,42 @@
-import { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
-import { Calendar, Phone, User, MessageCircle } from 'lucide-react';
+import { useState, useRef } from "react";
+import emailjs from "@emailjs/browser";
+import { Calendar, Phone, User, MessageCircle } from "lucide-react";
 
 export default function Appointment() {
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    date: '',
-    message: ''
+    name: "",
+    phone: "",
+    date: "",
+    message: "",
   });
-  const [status, setStatus] = useState('');
+  const [status, setStatus] = useState("");
   const [loading, setLoading] = useState(false);
 
   const formRef = useRef();
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setStatus('');
+    setStatus("");
 
     try {
       const result = await emailjs.sendForm(
-        'service_1j29krr',     // replace with your actual service ID
-        'template_yc0usje',    // replace with your actual template ID
+        "service_1j29krr", // replace with your actual service ID
+        "template_yc0usje", // replace with your actual template ID
         formRef.current,
-        'x3mkY0Xw6pZFIyv-g'      // replace with your public key
+        "x3mkY0Xw6pZFIyv-g" // replace with your public key
       );
 
       console.log(result.text);
-      setStatus('Appointment booked and email sent successfully.');
-      setFormData({ name: '', phone: '', date: '', message: '' });
+      setStatus("Appointment booked and email sent successfully.");
+      setFormData({ name: "", phone: "", date: "", message: "" });
     } catch (error) {
       console.error(error);
-      setStatus('Failed to send email. Please try again later.');
+      setStatus("Failed to send email. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -44,12 +44,16 @@ export default function Appointment() {
 
   return (
     <section className="p-8 max-w-3xl mx-auto bg-white rounded-xl shadow-md">
-      <h2 className="text-3xl font-bold text-center text-indigo-800 mb-6">Book an Appointment</h2>
+      <h2 className="text-3xl font-bold text-center text-indigo-800 mb-6">
+        Book an Appointment
+      </h2>
 
       <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
         {/* Name */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Your Name</label>
+          <label className="block text-gray-700 font-medium mb-1">
+            Your Name
+          </label>
           <div className="relative">
             <User className="absolute left-3 top-3 text-gray-400" />
             <input
@@ -66,7 +70,9 @@ export default function Appointment() {
 
         {/* Phone Number */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Phone Number</label>
+          <label className="block text-gray-700 font-medium mb-1">
+            Phone Number
+          </label>
           <div className="relative">
             <Phone className="absolute left-3 top-3 text-gray-400" />
             <input
@@ -84,7 +90,9 @@ export default function Appointment() {
 
         {/* Date */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Preferred Date</label>
+          <label className="block text-gray-700 font-medium mb-1">
+            Preferred Date
+          </label>
           <div className="relative">
             <Calendar className="absolute left-3 top-3 text-gray-400" />
             <input
@@ -100,7 +108,9 @@ export default function Appointment() {
 
         {/* Message */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Message / Symptoms</label>
+          <label className="block text-gray-700 font-medium mb-1">
+            Message / Symptoms
+          </label>
           <div className="relative">
             <MessageCircle className="absolute left-3 top-3 text-gray-400" />
             <textarea
@@ -120,12 +130,18 @@ export default function Appointment() {
           disabled={loading}
           className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md transition duration-200"
         >
-          {loading ? 'Sending...' : 'Book Appointment'}
+          {loading ? "Sending..." : "Book Appointment"}
         </button>
 
         {/* Status Message */}
         {status && (
-          <p className={`mt-4 text-center ${status.includes('successfully') ? 'text-green-600' : 'text-red-600'}`}>
+          <p
+            className={`mt-4 text-center ${
+              status.includes("successfully")
+                ? "text-green-600"
+                : "text-red-600"
+            }`}
+          >
             {status}
           </p>
         )}

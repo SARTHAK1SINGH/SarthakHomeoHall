@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react'; // Lucide icons for menu toggle
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Menu, X } from "lucide-react"; // Lucide icons for menu toggle
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,10 +15,31 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex space-x-6 text-sm sm:text-base">
-          <li><Link to="/" className="hover:underline">Home</Link></li>
-          <li><Link to="/doctor" className="hover:underline">Doctor</Link></li>
-          <li><Link to="/contact" className="hover:underline">Contact</Link></li>
-          <li><Link to="/appointment" className="hover:underline">Book Appointment</Link></li>
+          <li>
+            <Link to="/" className="hover:underline">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/doctor" className="hover:underline">
+              Doctor
+            </Link>
+          </li>
+          <li>
+            <Link to="/contact" className="hover:underline">
+              Contact
+            </Link>
+          </li>
+          <li>
+            <Link to="/appointment" className="hover:underline">
+              Book Appointment
+            </Link>
+          </li>
+          <li>
+            <Link to="/store" className="hover:underline">
+              Buy Medicine
+            </Link>
+          </li>
         </ul>
 
         {/* Mobile Menu Toggle */}
@@ -34,10 +55,41 @@ export default function Header() {
       {/* Mobile Dropdown Menu */}
       {isOpen && (
         <div className="md:hidden bg-blue-700 px-4 py-3 space-y-2">
-          <Link to="/" className="block text-white hover:underline" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link to="/doctor" className="block text-white hover:underline" onClick={() => setIsOpen(false)}>Doctor</Link>
-          <Link to="/contact" className="block text-white hover:underline" onClick={() => setIsOpen(false)}>Contact</Link>
-          <Link to="/appointment" className="block text-white hover:underline" onClick={() => setIsOpen(false)}>Book Appointment</Link>
+          <Link
+            to="/"
+            className="block text-white hover:underline"
+            onClick={() => setIsOpen(false)}
+          >
+            Home
+          </Link>
+          <Link
+            to="/doctor"
+            className="block text-white hover:underline"
+            onClick={() => setIsOpen(false)}
+          >
+            Doctor
+          </Link>
+          <Link
+            to="/contact"
+            className="block text-white hover:underline"
+            onClick={() => setIsOpen(false)}
+          >
+            Contact
+          </Link>
+          <Link
+            to="/appointment"
+            className="block text-white hover:underline"
+            onClick={() => setIsOpen(false)}
+          >
+            Book Appointment
+          </Link>
+          <Link
+            to="/store"
+            className="block text-white hover:underline"
+            onClick={() => setIsOpen(false)}
+          >
+            Buy Medicine
+          </Link>
         </div>
       )}
     </header>

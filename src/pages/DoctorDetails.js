@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export default function DoctorDetails() {
   const navigate = useNavigate(); // React Router hook for navigation
@@ -6,14 +6,13 @@ export default function DoctorDetails() {
   return (
     <section className="p-8 max-w-5xl mx-auto bg-white rounded-xl shadow-md">
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-        
         {/* Doctor Image */}
         <img
           src="/Doctor.jpg" // Replace with actual image path
           alt="Dr. Prem Lalit Mohan Singh"
           className="w-64 h-80 object-cover rounded-xl shadow-lg border-4 border-indigo-200"
         />
-        
+
         {/* Doctor Details */}
         <div className="flex-grow">
           <h2 className="text-3xl font-bold text-indigo-800 mb-2">
@@ -26,13 +25,16 @@ export default function DoctorDetails() {
             Experience: <span className="font-semibold">15+ years</span>
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
-            Specializes in diabetes management, hypertension, infectious diseases, and lifestyle counseling.<br />
-            Practicing at <strong>Sarthak Homeo Hall</strong>, WazirGanj, Gonda, Uttar Pradesh.
+            Specializes in diabetes management, hypertension, infectious
+            diseases, and lifestyle counseling.
+            <br />
+            Practicing at <strong>Sarthak Homeo Hall</strong>, WazirGanj, Gonda,
+            Uttar Pradesh.
           </p>
-          
+
           {/* Book Appointment Button */}
           <button
-            onClick={() => navigate('/appointment')}
+            onClick={() => navigate("/appointment")}
             className="bg-indigo-600 text-white px-6 py-2 rounded-full shadow hover:bg-indigo-700 transition"
           >
             Book Appointment

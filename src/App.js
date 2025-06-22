@@ -1,10 +1,11 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import DoctorDetails from './pages/DoctorDetails';
-import Contact from './pages/Contact';
-import Appointment from './pages/Appointment';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import DoctorDetails from "./pages/DoctorDetails";
+import Contact from "./pages/Contact";
+import Appointment from "./pages/Appointment";
+import BuyMedicine from "./pages/BuyMedicine"; // ✅ Correct
 
 export default function App() {
   return (
@@ -17,6 +18,7 @@ export default function App() {
             <Route path="/doctor" element={<DoctorDetails />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/appointment" element={<Appointment />} />
+            <Route path="/store" element={<BuyMedicine />} />
           </Routes>
         </main>
         <Footer />

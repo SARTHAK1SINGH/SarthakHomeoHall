@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
 export default function Contact() {
   return (
@@ -11,9 +11,12 @@ export default function Contact() {
         <div className="flex items-start gap-4">
           <MapPin className="text-indigo-600 w-6 h-6 mt-1" />
           <p>
-            <strong>Address:</strong><br />
-            Sarthak Homeo Hall,<br />
-            Near WazirGanj Police Station,<br />
+            <strong>Address:</strong>
+            <br />
+            Sarthak Homeo Hall,
+            <br />
+            Near WazirGanj Police Station,
+            <br />
             Gonda, Uttar Pradesh, 271124, India
           </p>
         </div>
@@ -21,14 +24,23 @@ export default function Contact() {
         <div className="flex items-center gap-4">
           <Phone className="text-indigo-600 w-6 h-6" />
           <p>
-            <strong>Phone:</strong> <a href="tel:+918052515001" className="hover:underline">+918052515001</a>
+            <strong>Phone:</strong>{" "}
+            <a href="tel:+918052515001" className="hover:underline">
+              +918052515001
+            </a>
           </p>
         </div>
 
         <div className="flex items-center gap-4">
           <Mail className="text-indigo-600 w-6 h-6" />
           <p>
-            <strong>Email:</strong> <a href="mailto:contact@drlalitsingh78@gmail.com" className="hover:underline">drlalitsingh78@gmail.com</a>
+            <strong>Email:</strong>{" "}
+            <a
+              href="mailto:contact@drlalitsingh78@gmail.com"
+              className="hover:underline"
+            >
+              drlalitsingh78@gmail.com
+            </a>
           </p>
         </div>
 
@@ -48,8 +60,13 @@ export default function Contact() {
                 </thead>
                 <tbody>
                   {[
-                    'Sunday', 'Monday', 'Tuesday', 'Wednesday',
-                    'Thursday', 'Friday', 'Saturday',
+                    "Sunday",
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday",
                   ].map((day) => (
                     <tr key={day} className="hover:bg-gray-50">
                       <td className="px-4 py-2 border-b">{day}</td>
